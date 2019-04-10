@@ -1,3 +1,6 @@
+float raioCircunferencia = 5; // favor não alterar
+float raioRoda = 1; // esse pode ser alterado
+
 void setup() {
   size(600, 600, P3D);
 }
@@ -30,7 +33,7 @@ void rampa() {
 void circunferencia() {
   noFill();
   stroke(255, 0, 0);
-  ellipse(0, 0, 10, 10);
+  ellipse(0, 0, raioCircunferencia*2, raioCircunferencia*2);
 }
 float angle = 0;
 void roda() {
@@ -38,7 +41,12 @@ void roda() {
   rotateX(radians(90)); // rotaciona o espaço em 90 graus em relação à rampa
   rotateY(radians(angle)); // rotaciona o espaço em torno do centro
   translate(0, 0, -5); // vai para a circunferência
-  ellipse(0, 3, 6, 6); // desenha a roda
+  ellipse(0, raioRoda, raioRoda*2, raioRoda*2); // desenha a roda
+  translate(0, raioRoda); // move o espaço pro centro da roda
+  rotateZ(radians(angle)); // rotaciona o espaço em torno de si próprio
+  translate(raioRoda, 0); // move pra borda da roda
+  stroke(255, 80, 102);
+  sphere(0.2); // desenha uma esfera
 
   angle -= 1;
 }

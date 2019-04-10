@@ -43,12 +43,18 @@ void roda() {
   translate(0, 0, -5); // vai para a circunferência
   ellipse(0, raioRoda, raioRoda*2, raioRoda*2); // desenha a roda
   translate(0, raioRoda); // move o espaço pro centro da roda
+  // calcula o comprimento a ser caminhado pela roda
+  float theta = angle - 2*PI/frameRate; // 2*PI/frameRate = um giro em um segundo
+  float arc = raioCircunferencia * theta;
+  // calcula o angulo para rotacionar a roda baseado
+  // no comprimento do arco que ela vai caminhar
+  float rangle = arc/raioRoda;
   // rotaciona o espaço em torno de si próprio
   // o PI/2 é pra manter a esfera na parte de baixo da roda, no momento inicial
-  rotateZ(angle + PI/2);
+  rotateZ(rangle + PI/2);
   translate(raioRoda, 0); // move pra borda da roda
   stroke(255, 80, 102);
   sphere(0.2); // desenha uma esfera
 
-  angle -= 2*PI/frameRate;
+  angle = theta;
 }

@@ -35,18 +35,20 @@ void circunferencia() {
   stroke(255, 0, 0);
   ellipse(0, 0, raioCircunferencia*2, raioCircunferencia*2);
 }
-float angle = 0;
+float angle = PI;
 void roda() {
   stroke(0, 90, 255);
-  rotateX(radians(90)); // rotaciona o espaço em 90 graus em relação à rampa
-  rotateY(radians(angle)); // rotaciona o espaço em torno do centro
+  rotateX(PI/2); // rotaciona o espaço em 90 graus em relação à rampa
+  rotateY(angle); // rotaciona o espaço em torno do centro
   translate(0, 0, -5); // vai para a circunferência
   ellipse(0, raioRoda, raioRoda*2, raioRoda*2); // desenha a roda
   translate(0, raioRoda); // move o espaço pro centro da roda
-  rotateZ(radians(angle)); // rotaciona o espaço em torno de si próprio
+  // rotaciona o espaço em torno de si próprio
+  // o PI/2 é pra manter a esfera na parte de baixo da roda, no momento inicial
+  rotateZ(angle + PI/2);
   translate(raioRoda, 0); // move pra borda da roda
   stroke(255, 80, 102);
   sphere(0.2); // desenha uma esfera
 
-  angle -= 1;
+  angle -= 2*PI/frameRate;
 }

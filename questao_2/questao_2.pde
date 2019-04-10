@@ -32,12 +32,14 @@ void circunferencia() {
   //  {0, 4, 3}
   //};
 }
-float angle = 270;
+float angle = 0;
 void roda() {
    stroke(0, 90, 255);
    float theta = radians(angle);
-   float x = 5*cos(theta) + 5;
+   float x =  5*cos(theta);
    float y = -5*sin(theta) + 5;
-   ellipse(x, y, 5, 5);
+   translate(x, y);
+   rotateX(radians(90));
+   ellipse(5, 3, 6, 6);
    angle += 1;
 }

@@ -1,4 +1,4 @@
-void settings() {
+void setup() {
   size(600, 600, P3D);
 }
 void draw() {
@@ -21,19 +21,12 @@ void rampa() {
 void circunferencia() {
   noFill();
   stroke(255, 0, 0);
-  strokeWeight(1);
-  rotateX(radians(30));
-  circle(5, 4, 10);
+  rotateX(radians(37));
+  ellipse(5, 5, 10, 10);
   //float[][] points = {
   //  {5, 0, 0},
   //  {10, 4, 3},
   //  {5, 8, 6},
   //  {0, 4, 3}
   //};
-  //beginShape();
-  //for (int i = 0; i > 4; ++i) {
-  //  float[] p = points[i];
-  //  vertex(p[0], p[1], p[2]);
-  //}
-  endShape(CLOSE);
 }

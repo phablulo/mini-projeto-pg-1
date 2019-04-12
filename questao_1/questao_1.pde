@@ -68,6 +68,7 @@ class Particle {
     float theta = vector.heading();
     if (theta > PI || theta < 0) {
       direction *= -1;
+      // *2 para compensar a rotação anterior que está incorreta
       vector.rotate(direction * 2 * speed/frameRate);
     }
     vector.setMag(theta/PI + 1);

@@ -1,3 +1,8 @@
+// speed é o arco a ser percorrido por segundo.
+// Fica muito mais fácil de ver se speed = 0.2*PI,
+// mas a questão pediu uma rotação completa por segundo,
+// então aí está
+float speed = 2*PI;
 float raioCircunferencia = 5; // favor não alterar
 float raioRoda = 1; // esse pode ser alterado
 
@@ -44,7 +49,7 @@ void roda() {
   ellipse(0, raioRoda, raioRoda*2, raioRoda*2); // desenha a roda
   translate(0, raioRoda); // move o espaço pro centro da roda
   // calcula o comprimento a ser caminhado pela roda
-  float theta = angle - 2*PI/frameRate; // 2*PI/frameRate = um giro em um segundo
+  float theta = angle - speed/frameRate;
   float arc = raioCircunferencia * theta;
   // calcula o angulo para rotacionar a roda baseado
   // no comprimento do arco que ela vai caminhar
@@ -53,7 +58,7 @@ void roda() {
   // o PI/2 é pra manter a esfera na parte de baixo da roda, no momento inicial
   rotateZ(rangle + PI/2);
   translate(raioRoda, 0); // move pra borda da roda
-  stroke(255, 80, 102);
+  stroke(255, 180, 65);
   sphere(0.2); // desenha uma esfera
 
   angle = theta;
